@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+
+#home{
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fcdff7d2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.previewBox{
+    width: 90%;
+    border-bottom: 1px solid black;
+    padding: 10px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#navBar{
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.usernames{
+    font-size: 2em;
+    font-weight: 200;
+}
+
+#title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 110px;
+}
+#toTop{
+    font-size: 2em;
+    border: 50%;
+    position: fixed;
+    top: 50px;
+    left: 25px;
+}
+
+#container{
+    background-color: #fcdff7d2;
+    min-height: 100vh;
+}
+
+.modalForms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+
+}
+
+#uploadLink{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#uploadForm{
+    height: 75vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#previewCard{
+    margin-bottom: 1em;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fileInput {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+   
+  label {
+    background-color: rgb(211, 50, 171);
+    border-radius: 4rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.3em;
+    
   }
-  to {
-    transform: rotate(360deg);
+    
+  /* #fileInput:focus + label,
+  #fileInput +  */
+  
+  label:hover {
+      background-color: #2fc8f7;
+      color: black
   }
-}
+    
+  #fileInput:focus + label {
+    outline: 1px dotted #000;
+  }
