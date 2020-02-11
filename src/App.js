@@ -130,6 +130,16 @@ function App() {
   }, [userNameText, rePassText, passText])
 
 
+  // Handling image clicks.
+  const [imageClicked, setImageClicked] = useState(false)
+  // const handleImgClick = () => {
+  //   setImageClicked(true)
+  // }
+
+  const imgToggle = () => {
+    setImageClicked(!imageClicked);
+  }
+
   // Api call username check
   useEffect(() => {
     axios.get(`https://insta.nextacademy.com/api/v1/users/check_name?username=${userNameText}`)
@@ -253,7 +263,10 @@ function App() {
         <Route exact path='/'>
           <HomePage users={users} />
         </Route>
-        <Route path='/users/:id' component={UserProfilePage} />
+        <Route path='/users/:id'>
+          <UserProfilePage imageClicked={imageClicked} imgToggle={imgToggle} />
+        </Route>
+
         <Route exact path='/profile'>
           <MyProfilePage loggedIn={loggedIn} />
         </Route>

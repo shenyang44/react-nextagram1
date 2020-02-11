@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
-import { Container, Col, Row } from 'reactstrap';
+import { Container, Col, Row, Modal } from 'reactstrap';
 import Image from 'react-graceful-image';
+import ImageModal from '../components/ImageModal'
 
 
-const UserProfilePage = () => {
+const UserProfilePage = ({ imageClicked, imgToggle }) => {
     const { id } = useParams();
     const [userImages, setUserImages] = useState([]);
     const [userInfo, setUserInfo] = useState('')
@@ -39,7 +40,14 @@ const UserProfilePage = () => {
                     {
                         userImages.map((source, index) => {
                             return (
-                                <Image alt={index} width='400px' style={{ margin: '10px' }} src={source} />
+                                <>
+                                    <div onClick={imgToggle}>
+                                        <Image alt={index} width='400px' style={{ margin: '10px' }} src={source} />
+                                    </div>
+                                    <Modal key={index} isOpen={imageClicked && } toggle={imgToggle}>
+                                        <ImageModal imgToggle={imgToggle} source={source} />
+                                    </Modal>
+                                </>
                             )
                         })
                     }
