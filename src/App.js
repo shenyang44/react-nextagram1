@@ -56,8 +56,6 @@ function App() {
   const handleSwitch = () => {
     logVsSign();
   }
-  //
-
 
   //LOG OUT
   const logOutPls = () => {
@@ -131,10 +129,12 @@ function App() {
 
 
   // Handling image clicks.
+  const [clickedSrc, setClickedSrc] = useState('')
   const [imageClicked, setImageClicked] = useState(false)
-  // const handleImgClick = () => {
-  //   setImageClicked(true)
-  // }
+  const handleImgClick = (e) => {
+    setClickedSrc(e.target.src)
+    imgToggle()
+  }
 
   const imgToggle = () => {
     setImageClicked(!imageClicked);
@@ -264,7 +264,7 @@ function App() {
           <HomePage users={users} />
         </Route>
         <Route path='/users/:id'>
-          <UserProfilePage imageClicked={imageClicked} imgToggle={imgToggle} />
+          <UserProfilePage clickedSrc={clickedSrc} handleImgClick={handleImgClick} imageClicked={imageClicked} imgToggle={imgToggle} />
         </Route>
 
         <Route exact path='/profile'>

@@ -6,7 +6,7 @@ import Image from 'react-graceful-image';
 import ImageModal from '../components/ImageModal'
 
 
-const UserProfilePage = ({ imageClicked, imgToggle }) => {
+const UserProfilePage = ({ handleImgClick, imageClicked, imgToggle, clickedSrc }) => {
     const { id } = useParams();
     const [userImages, setUserImages] = useState([]);
     const [userInfo, setUserInfo] = useState('')
@@ -41,11 +41,11 @@ const UserProfilePage = ({ imageClicked, imgToggle }) => {
                         userImages.map((source, index) => {
                             return (
                                 <>
-                                    <div onClick={imgToggle}>
-                                        <Image alt={index} width='400px' style={{ margin: '10px' }} src={source} />
+                                    <div style={{ display: 'inline' }} onClick={handleImgClick}>
+                                        <Image key={index} alt={index} width='400px' style={{ margin: '10px' }} src={source} />
                                     </div>
-                                    <Modal key={index} isOpen={imageClicked && } toggle={imgToggle}>
-                                        <ImageModal imgToggle={imgToggle} source={source} />
+                                    <Modal className='modal-lg' isOpen={imageClicked} toggle={imgToggle}>
+                                        <ImageModal imgToggle={imgToggle} source={clickedSrc} />
                                     </Modal>
                                 </>
                             )
